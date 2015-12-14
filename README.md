@@ -1,2 +1,2 @@
-# beatcatcher
-catch the bpm of a song via this webapp
+#Tap tempo 
+Tap to catch the temp of song
