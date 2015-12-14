@@ -1,0 +1,17 @@
+{
+  "name": "taptempo",
+  "homepage": "https://github.com/rodickmini/taptempo",
+  "authors": [
+    "rodickmini <rodickcai@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "tap": "~1.0.7"
+  }
+}

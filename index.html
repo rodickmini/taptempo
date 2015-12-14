@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>catch the beat</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" >
+    <style>
+        .beat-container {
+            margin-top: 50px;
+        }
+        .beat-container:after {
+            content: "bpm";
+            display: inline;
+        }
+        .tap-btn {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            margin: 50px auto 0;
+            line-height: 200px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container text-center">
+    <h1>catch the beat</h1>
+    <h2 class="beat-container">
+        <span class="label label-default beat-bit beat-bit-100">0</span>
+        <span class="label label-default beat-bit beat-bit-10">0</span>
+        <span class="label label-default beat-bit beat-bit-1">0</span>
+    </h2>
+    <div class="tap-btn btn-danger" id="tap-beat">输出</div>
+</div>
+
+
+</body>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/tap/dist/tap.min.js"></script>
+<script>
+    $(function() {
+        var dateArr = [];
+        var now;
+        document.addEventListener('keydown', function (e) {
+            if(e.keyCode == 32) {
+                now = new Date().getTime();
+                dateArr.push(now);
+            }
+        });
+        $('#tap-beat').click(function() {
+            cal();
+        });
+
+        function cal() {
+
+            if(dateArr.length >=2) {
+                var interval = 0;
+                var $b100 = $('.beat-bit-100');
+                var $b10 = $('.beat-bit-10');
+                var $b1 = $('.beat-bit-1');
+                var totalInterval = 0;
+                for(var i = 1; i< dateArr.length; i++) {
+                    totalInterval += dateArr[i] - dateArr[i-1]
+                }
+                interval = totalInterval/(dateArr.length-1);
+                var bpm = parseInt(60/(interval/1000)).toString();
+                bpm = formatStr(bpm);
+                $b100.text(bpm[0]);
+                $b10.text(bpm[1]);
+                $b1.text(bpm[2]);
+            }
+            dateArr = [];
+        }
+        function formatStr(str) {
+            if(typeof str == 'string') {
+                if(str.length == 1) {
+                    return '00' + str;
+                }
+                if(str.length == 2) {
+                    return '0' + str;
+                }
+                if(str.length == 3) {
+                    return str;
+                }
+            }
+        }
+    });
+
+</script>
+</html>
