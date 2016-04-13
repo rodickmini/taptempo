@@ -1,0 +1,29 @@
+{
+  "name": "taptempo",
+  "version": "1.0.0",
+  "description": "guitar player utils",
+  "main": "index.html",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodickmini/taptempo.git"
+  },
+  "keywords": [
+    "music",
+    "tempo",
+    "taptempo",
+    "guitar"
+  ],
+  "author": "rodick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodickmini/taptempo/issues"
+  },
+  "homepage": "https://github.com/rodickmini/taptempo#readme"
+}
